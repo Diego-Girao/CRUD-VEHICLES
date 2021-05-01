@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/image/favicon.png" type="image/png" />;
+
+
+    <!-- bootstrap-css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>::: Cadastro de Veículos :::</title>
+
+    <style>
+        .form-veiculos {
+            width: 600px;
+            margin: 10px auto;
+        }
+
+        .form-veiculos form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .table-veiculos {
+            width: 600px;
+            margin: 10px auto;
+        }
+
+        .table-veiculos table {
+            width: 100%;
+            text-align: center;
+        }
+
+        #btnSave {
+            width: 100%;
+            margin: 10px auto;
+        }
+
+        h2 {
+            font-family: monospace;
+            background-color: rgb(8, 170, 219);
+            color: whitesmoke;
+            text-align: center;
+            margin: 10px auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Formulario com info dos veiculos. -->
+    <h2>Dados do Veículo</h2>
+    <div class="form-veiculos">
+        <label for="formIdInput" class="form-label">Código</label>
+        <input class="form-control" name="id" readonly>
+        <label for="formMarcaInput" class="form-label">Marca</label>
+        <input class="form-control" name="marca" placeholder="Ex: Ford">
+        <label for="formModeloInput" class="form-label">Modelo</label>
+        <input class="form-control" name="modelo" placeholder="Ex: Bronco">
+        <label for="formAnoInput" class="form-label">Ano</label>
+        <input class="form-control" name="ano" placeholder="Ex: 2021">
+        <button type="button" class="btn btn-outline-success" id="btnSave">Salvar</button>
+    </div>
+    <!-- Final do Formulario com info dos veiculos. -->
+
+    <div class="table-veiculos">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Código</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Ano</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableBodyVehicles">
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="resources/js/vehicle.js"></script>
+    <script src="resources/js/repository-vehicle.js"></script>
+    <script src="resources/js/view-vehicles.js"></script>
+    <script src="resources/js/view-form-vehicles.js"></script>
+    <script src="resources/js/app.js"></script>
+
+</body>
+
+</html>

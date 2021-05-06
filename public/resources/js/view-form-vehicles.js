@@ -5,6 +5,8 @@ class FormVehicles {
         this.ViewVehicles = ViewVehicles;
         this.saveHandler = this.saveHandler.bind(this);
         this.clearForm = this.clearForm.bind(this);
+        this.alerta = this.alerta.bind(this);
+        this.alertaErro = this.alertaErro.bind(this);
     }
 
     render() {
@@ -28,22 +30,22 @@ class FormVehicles {
         if (!vehicle.id) {
             this.repository.insert(vehicle)
                 .then(data => {
-                    alert('Dados inseridos com sucesso !!!');
+                    this.alerta();
                     this.clearForm();
                     this.ViewVehicles.render();
                 })
                 .catch(error => {
-                    alert('Não foi possível salvar o veículo !');
+                    this.alertaErro();
                 })
         } else {
             this.repository.update(vehicle)
                 .then((response) => {
-                    alert('Dados atualizados com sucesso !!!');
+                    this.alerta();
                     this.clearForm();
                     this.ViewVehicles.render();
                 })
                 .catch(error => {
-                    alert('Não foi possível atualizar o veículo !');
+                    this.alertaErro();
                 })
         }
     }
@@ -53,5 +55,18 @@ class FormVehicles {
         this.elModelo.value = "";
         this.elAno.value = "";
     }
-
+    alerta () {
+        Swal.fire(
+            'Muito bem !',
+            'Dados do veículo gravado com sucesso !',
+            'success'
+          )
+    }
+    alertaErro () {
+        Swal.fire(
+            'Ops!',
+            'Não foi possível atualizar o veículo',
+            'error'
+          )
+    }
 }

@@ -4,7 +4,7 @@ class ViewVehicles {
         this.elTable = document.querySelector('#tableBodyVehicles');
         this.render = this.render.bind(this);
         this.editHandler = this.editHandler.bind(this);
-        this.deletetHandler = this.deleteHandler.bind(this);
+        this.deleteHandler = this.deleteHandler.bind(this);
     }
 
     render() {
@@ -89,10 +89,10 @@ class ViewVehicles {
 
     deleteHandler(event) {
         const id = event.target.getAttribute('data-id');
-        repository.remove(id)
+        this.repository.remove(id)
             .then(data => {
                 alert('O veículo foi removido com sucesso !!!');
-                
+                this.render();
             })
             .catch(error => {
                 alert('Não foi possível remover o veículo !');

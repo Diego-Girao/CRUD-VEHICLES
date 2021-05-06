@@ -5,6 +5,8 @@ class ViewVehicles {
         this.render = this.render.bind(this);
         this.editHandler = this.editHandler.bind(this);
         this.deleteHandler = this.deleteHandler.bind(this);
+        this.alertaDelete = this.alertaDelete.bind(this);
+        this.alertaErroExcluir = this.alertaErroExcluir.bind(this);
     }
 
     render() {
@@ -91,12 +93,26 @@ class ViewVehicles {
         const id = event.target.getAttribute('data-id');
         this.repository.remove(id)
             .then(data => {
-                alert('O veículo foi removido com sucesso !!!');
+                this.alertaDelete();
                 this.render();
             })
             .catch(error => {
-                alert('Não foi possível remover o veículo !');
+                this.alertaErroExcluir();
                 
             });
+    }
+    alertaDelete () {
+        Swal.fire(
+            'Apagado',
+            'Veículo excluído com sucesso !',
+            'error'
+          )
+    }
+    alertaErroExcluir () {
+        Swal.fire(
+            'Ops!',
+            'Não foi possível exlcuir o veículo',
+            'error'
+          )
     }
 }

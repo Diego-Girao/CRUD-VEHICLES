@@ -2,7 +2,7 @@
 DJF - Treinamentos - Brasil/Portugal High Value Developer.
 @diegoramiro25
 
-Utilizados no projeto 💻
+Desenvolvido em /Developed in 💻
 - Javascript🎯
 - Html🧶
 - Bootstrap👑
